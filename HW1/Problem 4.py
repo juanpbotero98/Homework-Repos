@@ -5,7 +5,7 @@
 
 
 import numpy as np
-
+import numpy.linalg as la 
 
 # A reinal neuron generates responses that are a weighted sum of intensities of light sensed at 6 regions in the retina
 # 
@@ -26,11 +26,11 @@ import numpy as np
 # Geometrically, the largest response is generated when l1 and w_weight are parallel with each other. 
 # This implies that their dot product = 1
 # 
-
+w_weight = [1,3,8,8,3,1]
+transfrm_matrix = np.diag(w_weight)
+la.solve(transfrm_matrix,np.zeros((6,1)))
 # In[15]:
 
-
-w_weight = [1,3,8,8,3,1]
 ln = np.array([1,3,8,8,3,1])
 l_1 = np.linalg.norm(ln)
 l_hat = ln/l_1
